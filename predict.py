@@ -42,11 +42,10 @@ def check():
     class Preprocessor(BaseEstimator, TransformerMixin):
         def fit(self,img_object):
             return self
-        import numpy as np
-
-        def transform(self, img_object):
-            img_array = np.array(img_object)
-            expanded = np.expand_dims(img_array, axis=0)
+        
+        def transform(self,img_object):
+            img_array = image.img_to_array(img_object)
+            expanded = (np.expand_dims(img_array,axis=0))
             return expanded
 
     class Predictor(BaseEstimator, TransformerMixin):
@@ -75,8 +74,8 @@ def main():
     col1, col2 = st.columns(2)
 
     with col1:
-        st.title('Automatic Detection of Rice Nutrients')
-        st.subheader('Using CNN for identifying rice Plant Nutrient Deficiencies')
+        st.title('rice leaf nutrients deficiency detection')
+        st.subheader('Using CNN for identifying Plant Nutrient Deficiencies')
         image_file = st.file_uploader("Upload Images", type=["png","jpg","jpeg"])
         # code for Prediction
         prediction = ''
