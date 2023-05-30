@@ -2,7 +2,6 @@ import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import numpy as np
 import pandas as pd
-import tensorflow as tf
 from tensorflow import keras
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.pipeline import Pipeline
